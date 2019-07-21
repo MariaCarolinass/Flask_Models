@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+  <head>
+    <meta charset="utf-8">
+        {% if titulo %}
+        <title>{{ titulo }} - Guardando Registros!</title>
+        {% else %}
+        <title>Seja Bem vindo!</title>
+        {% endif %}
+  </head>
+
+  <body>
+    <div>
+      <b>Flask_Models: </b>
+      <a href="/index">Home</a>
+      <a href="/registros">Registros</a>
+    </div>
+    <hr>
+
+    {% block content %}{% endblock %}
+
+  </body>
+
+</html>

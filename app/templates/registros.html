@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Registros</h1>
+
+  <form action="index.html" method="post" novalidate>
+      <p>
+          {{ form.nomecompleto.label }}<br>
+          {{ form.nomecompleto(size=32) }}
+      </p>
+
+      <p>
+          {{ form.cpf.label }}<br>
+          {{ form.cpf(size=32) }}
+      </p>
+
+      <p>
+          {{ form.idade.label }}<br>
+          {{ form.idade(size=32) }}
+      </p>
+
+      <p>
+          {{ form.cidade.label }}<br>
+          {{ form.cidade(size=32) }}
+      </p>
+
+      <p>
+          {{ form.telefone.label }}<br>
+          {{ form.telefone(size=32) }}
+      </p>
+
+      <p>
+          {{ form.sobrevoce.label }}<br>
+          {{ form.sobrevoce(cols=50, rows=10) }}
+      </p>
+
+      <p>
+          {{ form.submit() }}
+      </p>
+  </form>
+
+{% endblock %}

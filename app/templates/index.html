@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+  <head>
+    <meta charset="utf-8">
+        {% if titulo %}
+        <title>{{ titulo }} - Guardando Registros!</title>
+        {% else %}
+        <title>Seja Bem vindo!</title>
+        {% endif %}
+  </head>
+
+  <body>
+    {% extends "base.html" %}
+
+    {% block content %}
+
+      <h1>Olá, {{ nome.seunome }}!</h1>
+
+    {% endblock %}
+  </body>
+</html>
