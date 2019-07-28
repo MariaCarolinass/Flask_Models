@@ -2,42 +2,79 @@
 
 {% block content %}
 
-  <h1>Registros</h1>
+  <style>
+      div#interface {
+        width: 400px;
+        margin: 20px auto 0px auto;
+        box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+        padding: 10px 10px 10px 10px;
+      }
+  </style>
+  <div class="col-md-4 col-md-offset-4" id="interface">
 
-  <form action="index.html" method="post" novalidate>
-      <p>
-          {{ form.nomecompleto.label }}<br>
-          {{ form.nomecompleto(size=32) }}
-      </p>
+  <h1><center>Registros</center></h1>
 
+  <form action="" method="POST">
+      {{ form.csrf_token }}
+      <div>
       <p>
-          {{ form.cpf.label }}<br>
-          {{ form.cpf(size=32) }}
+          <b>
+          {{ form.nomecompleto.label }} <br>
+          {{ form.nomecompleto(size=50, placeholder="Seu_Nome") }}
+          </b>
       </p>
+      </div>
 
+      <div>
       <p>
-          {{ form.idade.label }}<br>
-          {{ form.idade(size=32) }}
+          <b>
+          {{ form.cpf.label }} <br>
+          {{ form.cpf(size=50, placeholder="Número_CPF") }}
+          </b>
       </p>
+      </div>
 
+      <div>
       <p>
-          {{ form.cidade.label }}<br>
-          {{ form.cidade(size=32) }}
+          <b>
+          {{ form.idade.label }} <br>
+          {{ form.idade(size=50, placeholder="Sua_Idade") }}
+          </b>
       </p>
+      </div>
 
+      <div>
       <p>
-          {{ form.telefone.label }}<br>
-          {{ form.telefone(size=32) }}
+          <b>
+          {{ form.cidade.label }} <br>
+          {{ form.cidade(size=50, placeholder="Sua_Cidade") }}
+          </b>
       </p>
+      </div>
 
+      <div>
       <p>
-          {{ form.sobrevoce.label }}<br>
-          {{ form.sobrevoce(cols=50, rows=10) }}
+          <b>
+          {{ form.telefone.label }} <br>
+          {{ form.telefone(size=50, placeholder="Seu_Telefone") }}
+          </b>
       </p>
+      </div>
 
+      <div>
       <p>
-          {{ form.submit() }}
+          <b>
+          {{ form.sobrevoce.label }} <br>
+          {{ form.sobrevoce(cols=54.6, rows=10, placeholder="Fale_Um_Pouco_Sobre_Vocẽ") }}
+          </b>
       </p>
+      </div>
+
+      <div>
+      <p>
+          <center>{{ form.submit() }}</center>
+      </p>
+      </div>
   </form>
-
+  </div>
 {% endblock %}

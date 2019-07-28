@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Resultado: {{ msg }}</h1>
+
+  <table border = 1>
+         <thead>
+            <td>nomecompleto</td>
+            <td>cpf</td>
+            <td>idade</td>
+            <td>cidade</td>
+            <td>telefone</td>
+            <td>sobrevoce</td>
+         </thead>
+
+         {% for row in rows %}
+            <tr>
+               <td>{{row["nomecompleto"]}}</td>
+               <td>{{row["cpf"]}}</td>
+               <td> {{ row["idade"]}}</td>
+               <td>{{row['cidade']}}</td>
+               <td>{{row["telefone"]}}</td>
+               <td>{{row["sobrevoce"]}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+
+        <a href = "/">Go back to home page</a>
+        
+{% endblock %}

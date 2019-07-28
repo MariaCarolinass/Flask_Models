@@ -13,10 +13,22 @@
   <body>
     <div>
       <b>Flask_Models: </b>
-      <a href="/index">Home</a>
-      <a href="/registros">Registros</a>
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('registros') }}">Registros</a>
     </div>
     <hr>
+
+    <div class="alert alert-warning">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}  
+    </div>
 
     {% block content %}{% endblock %}
 
