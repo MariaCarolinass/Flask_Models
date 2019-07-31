@@ -9,8 +9,6 @@ from app.models import Model
 
 import sqlite3
 
-import mysql.connector
-
 @app.route('/')
 
 @app.route('/index', methods=['GET','POST'])
@@ -21,10 +19,10 @@ def index():
 @app.route('/registros', methods=['GET','POST'])
 def registros():
     form = RegistrosForm()
-    db = mysql.connector.connect(host="localhost", user="root", passwd="carol", database="Model")
+    db = sqlite3.connect(host="localhost", user="root", passwd="carol", models="Model")
 
     if form.validate_on_submit():
-        model = Model(nomecompleto=form.nomecompleto.data, cpf=form.cpf.data,
+        models = Model(nomecompleto=form.nomecompleto.data, cpf=form.cpf.data,
                     idade=form.idade.data, cidade=form.cidade.data,
                     telefone=form.telefone.data, sobrevoce=form.sobrevoce.data)
 
@@ -35,7 +33,7 @@ def registros():
         telefone = request.form['telefone']
         sobrevoce = request.form['sobrevoce']
 
-        con = mysql.connector.connect("app.db")
+        con = sqlite3.connect("app.db")
         cur = db.cursor()
 
         cur.execute("INSERT INTO registros (nomecompleto, cpf, idade, cidade, telefone, sobrevoce) VALUES (?,?,?,?,?,?)"
@@ -52,8 +50,8 @@ def registros():
 
 @app.route('/lista')
 def lista():
-    db = mysql.connector.connect(host="localhost", user="root", passwd="carol", database="Model")
-    con = mysql.connector.connect("app.db")
+    db = sqlite3.connect(host="localhost", user="root", passwd="carol", database="Model")
+    con = sqlite3.connect("app.db")
     con.row_factory = sql.Row
     cur = db.cursor()
     cur.execute("SELECT * FROM registros")
